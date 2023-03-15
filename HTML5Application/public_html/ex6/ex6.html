@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <meta http−equiv="content−type" content="text/html" charset="UTF-8">
+            <title>Frame</title>   
+            <link rel="stylesheet" href="estil.css">
+        </head>
+    <body>
+        <div>
+            <label>Obres de literatura</label>
+            <select id="obra">
+                    <option value=""></option>
+                    <option value="tirant_lo_blanc">Tirant lo Blanc</option>
+                    <option value="quijote_de_la_mancha">Quijote de la Mancha</option>
+                    <option value="guerra_i_pau">Guerra i Pau</option>
+                    <option value="la_divina_comedia">La Divina Comèdia</option>
+                    <option value="la_isla_del_tesoro">La isla del tesoro</option>
+            </select>
+        </div>
+        <div>
+        <label>Estils iframe</label>
+        <select id="estil" onchange="actualizarEstilo()">
+                <option value=""></option>
+                <option value="estil1">Estil1</option>
+                <option value="estil2">Estil2</option>
+                <option value="estil3">Estil3</option>
+                <option value="estil4">Estil4</option>
+        </select>
+        <br />
+        <label>Tamany font</label>
+        <input type="range" min="0" max="100" step="1" value="16" id="rango">
+        <br />
+        <label>Google font</label>
+        <select id="font" onchange="actualitzarFont()">
+                <option value=""></option>
+                <option value="Lobster">Lobster</option>
+                <option value="Oswald">Oswald</option>
+                <option value="Rajdhani">Rajdhani</option>
+                <option value="Rubik Iso">Rubik Iso</option>
+        </select>
+        </div>
+        <div>
+                <iframe src=""id="contingut"></iframe>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+            <meta http-equiv="content-type" content="text/html; charset=utf-8">
+            <title>Paraules compostes</title>
+    </head>
+    <body>
+        <h1>Paraules compostes</h1>
+
+        <label for="primer">Primer:</label>
+        <select id="primer" onchange="esborrarResposta()">
+          <option value=""></option>
+          <option value="alta">Alta</option>
+          <option value="aplega">Aplega</option>
+          <option value="auto">Auto</option>
+          <option value="caça">Caça</option>
+          <option value="cobre">Cobre</option>
+          <option value="tira">Tira</option>
+          <option value="escura">Escura</option>
+          <option value="espanta">Espanta</option>
+          <option value="grata">Grata</option>
+          <option value="mata">Mata</option>
+          <option value="moto">Moto</option>
+          <option value="para">Para</option>
+          <option value="pela">Pela</option>
+          <option value="penja">Penja</option>
+          <option value="renta">Renta</option>
+          <option value="vídeo">Vídeo</option>
+        </select>
+
+        <label for="segon">Segon:</label>
+        <select id="segon" onchange="formarParaula()">
+          <option value=""></option>
+          <option value="veu">Veu</option>
+          <option value="pilotes">Pilotes</option>
+          <option value="mòbil">Mòbil</option>
+          <option value="retrat">Retrat</option>
+          <option value="papallones">Papallones</option>
+          <option value="llit">Llit</option>
+          <option value="xines">Xines</option>
+          <option value="dents">Dents</option>
+          <option value="xemeneies">Xemeneies</option>
+          <option value="ocells">Ocells</option>
+          <option value="cels">Cels</option>
+          <option value="mosques">Mosques</option>
+          <option value="serra">Serra</option>
+          <option value="brises">Brises</option>
+          <option value="caigudes">Caigudes</option>
+          <option value="llamps">Llamps</option>
+          <option value="sol">Sol</option>
+          <option value="patates">Patates</option>
+          <option value="roba">Roba</option>
+          <option value="cotxes">Cotxes</option>
+          <option value="vaixelles">Vaixelles</option>
+          <option value="joc">Joc</option>
+        </select>
+
+        <div id="resultat"></div>
+        <script>
+            function esborrarResposta() {                  
+                    document.getElementById("resultat").innerHTML = "";
+            }
+            function formarParaula() {
+                
+                let primeraParaula = document.getElementById("primer").value;
+                let segonaParaula = document.getElementById("segon").value;
+                
+
+                // Verifiquem si la primera paraula acaba en vocal i la segona comença a R, S o X
+                let esParaulaComposta = false;
+                let ultimaLletra = primeraParaula.charAt(primeraParaula.length-1);
+                let primeraLletra = segonaParaula.charAt(0);
+                if ((ultimaLletra === "a" || ultimaLletra === "e" || ultimaLletra === "i" || ultimaLletra === "o" || ultimaLletra === "u") && (primeraLletra === "r" || primeraLletra === "s" || primeraLletra === "x")) {
+                        esParaulaComposta = true;
+                }
+
+                // Formació la paraula composta
+                let paraulaComposta = "";
+                if (esParaulaComposta) {
+                    paraulaComposta = primeraParaula + "-" + segonaParaula;
+                } else {
+                    paraulaComposta = primeraParaula + segonaParaula;
+                }
+                paraulaComposta = paraulaComposta.toLowerCase();
+                             
+                document.getElementById("resultat").innerHTML = paraulaComposta;
+            }
+        </script>
+    </body>
+</html>

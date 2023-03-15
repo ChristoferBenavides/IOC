@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+
+<html>
+    <head>
+            <title>Generador de dies laborables</title>
+            <meta http−equiv="content−type" content="text/html" charset="UTF-8">
+    </head>
+    <body>
+	<h1>Generador de dies laborables</h1>
+	<label for="dataInici">Data d'inici:</label>
+	<input type="text" id="dataInici" name="dataInici" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required>
+	<label for="dataFi">Data de fi:</label>
+	<input type="text" id="dataFi" name="dataFi" placeholder="dd/mm/yyyy" pattern="\d{2}/\d{2}/\d{4}" required>
+	<button onclick="generaDiesLaborables()">Genera</button>
+	<div id="resultat" ></div>
+
+	<script>
+            function generaDiesLaborables() {
+                let dataInici = document.getElementById("dataInici").value;
+                let dataFi = document.getElementById("dataFi").value;
+
+                // Comprovar si les dates són vàlides
+                let regexData = /^\d{2}\/\d{2}\/\d{4}$/;
+                if (!regexData.test(dataInici) || !regexData.test(dataFi)) {
+                        alert("Les dates introduïdes no són vàlides.");
+                        return;
+                }
+
+                // Convertir les dates en objectes Date
+                let partsDataInici = dataInici.split("/");
+                let partsDataFi = dataFi.split("/");
+                let dataIniciObjecte = new Date(partsDataInici[2], partsDataInici[1] - 1, partsDataInici[0]);
+                let dataFiObjecte = new Date(partsDataFi[2], partsDataFi[1] - 1, partsDataFi[0]);
+
+                // Comprovar si la primera data és anterior a la segona
+                if (dataIniciObjecte >= dataFiObjecte) {
+                        alert("La data d'inici ha de ser anterior a la data de fi."); 
+                        return;
+                }
+
+                // Generar els dies laborables
+                let diesLaborables = 0;
+                let resultatText = "";
+                let dia = new Date(dataIniciObjecte.getTime());
+                while (dia <= dataFiObjecte) {
+                        // Comprovar si el dia és laborable (és a dir, no és diumenge ni dissabte)
+                        if (dia.getDay() !== 0 && dia.getDay() !== 6) {
+                                diesLaborables++;
+                                resultatText += dia.toLocaleDateString() + "<br>";
+                        }
+                        dia.setDate(dia.getDate() + 1);
+                }
+                resultatText += "Número de dies laborables: " + diesLaborables;
+                document.getElementById("resultat").innerHTML = resultatText ;
+            }
+	</script>
+    </body>
+</html>

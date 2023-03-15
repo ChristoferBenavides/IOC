@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Llistat de números grans que continguin tres 'r' com a mínim</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script src="numeroALetras.js"></script>
+        <div id="resultat" ></div>
+        <script>            
+            
+            function generateRandomNumber() {
+                let randomNumber = Math.floor(Math.random() * 999999) + 1000; // Generem un número aleatori entre 1000 i 999999
+                let numString = randomNumber.toString(); // Convertim el número a un string per poder-hi buscar '3' i '4'
+                let count = 0; // Comptador de '3' i '4'
+  
+                for (let i = 0; i < numString.length; i++) { // Recorrem el string del número
+                    if (numString[i] === '3' || numString[i] === '4') { // Si trobem un '3' o un '4'
+                        count++; // Incrementem el comptador
+                    }
+                }
+  
+                if (count >= 3) { // Si el número té com a mínim 3 'r'
+                    return randomNumber; // Retornem el número
+                } else { // Si no té prou 'r'
+                    return generateRandomNumber(); // Tornem a generar un número aleatori fins que en trobem un que compleixi les condicions
+                }
+            }
+            let numbersList = [];
+            for (let i = 0; i < 50; i++) {
+                let randomNumber = generateRandomNumber();
+                let randomNumberParaula = NumeroALetras(randomNumber);               
+                numbersList.push(randomNumber + ":" + randomNumberParaula);
+                
+            }
+           document.getElementById("resultat").innerHTML = numbersList.join("<br>");
+        </script>
+    </body>
+</html>

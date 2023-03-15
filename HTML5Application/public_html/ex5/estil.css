@@ -1,0 +1,52 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 13 mar 2023, 12:26:18
+    Author     : chris
+*/
+body {
+    font-family: Arial, sans-serif;
+     background-color: #f8b878;
+}
+
+h1 {
+    text-align: center;
+}
+
+.formulari {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+}
+
+button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+    background-color: #FFFFFF;
+    color: black;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+#mostrarNota, #mostrarNotaMitjana {
+  font-weight: bold;
+}

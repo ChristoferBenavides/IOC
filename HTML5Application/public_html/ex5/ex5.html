@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicació de notes</title>
+    <link rel="stylesheet" href="estil.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Aplicació de notes</h1>
+
+    <div class="formulari">
+        <label for="modul">Mòdul:</label>
+        <select id="modul">
+            <option value=""></option>
+            <option value="M01">M01</option>
+            <option value="M02">M02</option>
+            <option value="M03">M03</option>
+        </select>
+
+        <label for="nota">Nota:</label>
+        <select id="nota">
+            <option value=""></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+
+        <button onclick="afegirNota()">Afegir</button>
+        <button onclick="presentarNotesMitjanes()">Global</button>
+        <button onclick="reiniciar()">Reiniciar</button>
+    </div>
+
+    <div id="mostrarNota"></div>
+    <div id="mostrarNotaMitjana"></div>
+
+    
+</body>
+</html>
